@@ -14,11 +14,12 @@ def run():
     img = util.load_img(os.path.join(FOLDER, RIGHT_FILENAME))
 
     coef = comp.extract_rgb_coeff(img)
-    #print (coef)
+    print ("moving forward")
     image = comp.img_from_dwt_coeff(coef)
-    image.save("D:\Academics\ICT-Sem3\SignalsAndSystems\Project\helloAll.jpg")
+    image.save("D:\Academics\ICT-Sem3\SignalsAndSystems\Project\helloAll.jpg")#change your path here
     image.show()
     print("Image formed")
+    image.save("D:/Academics/ICT-Sem3/SignalsAndSystems/Project/ImageCompression-DWT/ImageCompressionUsingDWT/example/test.jpeg")#change your path here as well
     
 
 

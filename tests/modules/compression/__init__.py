@@ -108,11 +108,19 @@ def extract_rgb_coeff(img):
             mat_b[i, j] = b
 
     # coeffs_r: cA,(cH,cV,cD)
+    print("Mat_r : ")
+    print(mat_r)
+    print("\nMat_g : ")
+    print(mat_g)
+    print("\nMat_b : ")
+    print(mat_b)
     coeffs_r = pywt.dwt2(mat_r, 'haar')
     # coeffs_g: cA,(cH,cV,cD)
     coeffs_g = pywt.dwt2(mat_g, 'haar')
     # coeffs_b: cA,(cH,cV,cD)
     coeffs_b = pywt.dwt2(mat_b, 'haar')
+    print("Coeff : \ncoeff_r ")
+    print(coeffs_r,"\ncoeff_g ",coeffs_g,"\ncoeff_b ",coeffs_b)
     return (coeffs_r, coeffs_g, coeffs_b)
 
 def img_from_dwt_coeff(coeff_dwt):
@@ -131,9 +139,9 @@ def img_from_dwt_coeff(coeff_dwt):
     cARed = numpy.array(coeffs_r[0])
     cc = numpy.array((coeffs_r, coeffs_g, coeffs_b))
 
-    (width, height) = numpy.shape(cc)
-
-
+    (width, height) = (len(coeffs_r[0]),len(coeffs_r[0][0]))
+    print("width : ",width," height : ",height)
+    print("test : ",numpy.ndim(cc)," tt : ",len(coeffs_r[0][0]))
     cHRed = numpy.array(coeffs_r[1][0])
     cVRed = numpy.array(coeffs_r[1][1])
     cDRed = numpy.array(coeffs_r[1][2])
