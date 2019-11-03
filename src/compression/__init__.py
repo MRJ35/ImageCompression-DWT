@@ -93,7 +93,7 @@ def extract_rgb_coeff(img):
     (coeffs_r, coeffs_g, coeffs_b):
         RGB coefficients with Discrete Wavelet Transform Applied
     """
-    (width, height) = (259,194)
+    (width, height) = (256, 256)
     img = img.copy()
 
     mat_r = numpy.empty((width, height))
