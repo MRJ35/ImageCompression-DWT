@@ -27,7 +27,7 @@ def run():
 
 
     # (It will not change orginal image)
-    im1 = im.crop((0, 0, 256/2, 256/2))
+    im1 = im.crop((0, 0, height/2, width/2))
 
     # Shows the image in image viewer
     im1.show()
