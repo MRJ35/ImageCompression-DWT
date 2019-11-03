@@ -208,7 +208,10 @@ def img_from_dwt_coeff(coeff_dwt):
             B = (B/cDMaxBlue)*100.0
             new_value = (int(R), int(G), int(B))
             dwt_img.putpixel((i+width, j+height), new_value)
-    return dwt_img
+    for i in range(width):
+        for j in range(height):
+            new_image.putpixel((i,j),dwt_image.getpixel(i,j))
+    return new_value
 
 def quantization(mat):
     pass
