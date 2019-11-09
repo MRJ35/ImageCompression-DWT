@@ -137,6 +137,9 @@ def img_from_dwt_coeff(coeff_dwt):
     #Channel Red
     (coeffs_r, coeffs_g, coeffs_b) = coeff_dwt
     cARed = numpy.array(coeffs_r[0])
+    cAGreen = numpy.array(coeffs_g[0])
+    cABlue = numpy.array(coeffs_b[0])
+
     cc = numpy.array((coeffs_r, coeffs_g, coeffs_b))
 
     (width, height) = (len(coeffs_r[0]),len(coeffs_r[0][0]))
@@ -179,9 +182,9 @@ def img_from_dwt_coeff(coeff_dwt):
     for i in range(width):
         for j in range(height):
             R = cARed[i][j]
-            R = (R/cAMaxRed)*160.0
+            R = (R/cAMaxRed)*100.0
             G = cAGreen[i][j]
-            G = (G/cAMaxGreen)*85.0
+            G = (G/cAMaxGreen)*100.0
             B = cABlue[i][j]
             B = (B/cAMaxBlue)*100.0
             new_value = (int(R), int(G), int(B))
@@ -219,7 +222,10 @@ def img_from_dwt_coeff(coeff_dwt):
             B = (B/cDMaxBlue)*100.0
             new_value = (int(R), int(G), int(B))
             dwt_img.putpixel((i+width, j+height), new_value)
+
+
     return dwt_img
+
 
 def quantization(mat):
     pass

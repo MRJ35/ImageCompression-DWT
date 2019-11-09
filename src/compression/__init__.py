@@ -162,7 +162,7 @@ def img_from_dwt_coeff(coeff_dwt):
     cDMaxBlue = util.max_ndarray(cDBlue)
 
     # Image object init
-    dwt_img = Image.new('RGB', (width*2, height*2), (0, 0, 20))
+    dwt_img = Image.new('RGB', (width, height), (0, 0, 20))
     dwt_img.show('testing')
     #cA reconstruction
     for i in range(width):
