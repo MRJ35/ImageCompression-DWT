@@ -8,7 +8,7 @@ import utils as util
 import numpy as np
 
 FOLDER = 'data'
-RIGHT_FILENAME = 'images.jpg'
+RIGHT_FILENAME = 'lena.png'
 
 def run():
     img = util.load_img(os.path.join(FOLDER, RIGHT_FILENAME))
@@ -16,10 +16,10 @@ def run():
     coef = comp.extract_rgb_coeff(img)
     print ("moving forward")
     image = comp.img_from_dwt_coeff(coef)
-    image.save("data.jpg")#change your path here
+    #image.save("data.jpg")#change your path here
     image.show()
     print("Image formed")
-    image.save("data/data1.jpg")#change your path here as well
+    image.save("data/compressed_image.jpg")#change your path here as well
 
 
 
