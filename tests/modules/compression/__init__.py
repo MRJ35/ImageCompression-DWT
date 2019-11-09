@@ -222,8 +222,6 @@ def img_from_dwt_coeff(coeff_dwt):
     #         B = (B/cDMaxBlue)*100.0
     #         new_value = (int(R), int(G), int(B))
     #         dwt_img.putpixel((i+width, j+height), new_value)
-
-
     return dwt_img
 
 
