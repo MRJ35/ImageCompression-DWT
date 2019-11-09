@@ -6,9 +6,10 @@ import os
 import tests.modules.compression as comp
 import utils as util
 import numpy as np
+from PIL import ImageEnhance
 
 FOLDER = 'data'
-RIGHT_FILENAME = 'lena.png'
+RIGHT_FILENAME = 'images.jpg'
 
 def run():
     img = util.load_img(os.path.join(FOLDER, RIGHT_FILENAME))
@@ -17,9 +18,23 @@ def run():
     print ("moving forward")
     image = comp.img_from_dwt_coeff(coef)
     #image.save("data.jpg")#change your path here
-    image.show()
-    print("Image formed")
-    image.save("data/compressed_image.jpg")#change your path here as well
+
+    enhancer = ImageEnhance.Brightness(image)
+    image = enhancer.enhance(2)
+
+    enhancer = ImageEnhance.Contrast(image)
+    image = enhancer.enhance(1.1)
+
+    enhancer = ImageEnhance.Color(image)
+    image = enhancer.enhance(1.1)
+
+    image.save("data/final.jpg")
+
+
+
+    # image.show()
+    # print("Image formed")
+    # image.save("data/compressed_image.jpg")#change your path here as well
 
 
 

@@ -177,7 +177,7 @@ def img_from_dwt_coeff(coeff_dwt):
     cDMaxBlue = util.max_ndarray(cDBlue)
 
     # Image object init
-    dwt_img = Image.new('RGB', (width*2, height*2), (0, 0, 20))
+    dwt_img = Image.new('RGB', (width, height), (0, 0, 20))
     #cA reconstruction
     for i in range(width):
         for j in range(height):
@@ -189,39 +189,39 @@ def img_from_dwt_coeff(coeff_dwt):
             B = (B/cAMaxBlue)*100.0
             new_value = (int(R), int(G), int(B))
             dwt_img.putpixel((i, j), new_value)
-    #cH reconstruction
-    for i in range(width):
-        for j in range(height):
-            R = cHRed[i][j]
-            R = (R/cHMaxRed)*160.0
-            G = cHGreen[i][j]
-            G = (G/cHMaxGreen)*85.0
-            B = cHBlue[i][j]
-            B = (B/cHMaxBlue)*100.0
-            new_value = (int(R), int(G), int(B))
-            dwt_img.putpixel((i+width, j), new_value)
-    #cV reconstruction
-    for i in range(width):
-        for j in range(height):
-            R = cVRed[i][j]
-            R = (R/cVMaxRed)*160.0
-            G = cVGreen[i][j]
-            G = (G/cVMaxGreen)*85.0
-            B = cVBlue[i][j]
-            B = (B/cVMaxBlue)*100.0
-            new_value = (int(R), int(G), int(B))
-            dwt_img.putpixel((i, j+height), new_value)
-    #cD reconstruction
-    for i in range(width):
-        for j in range(height):
-            R = cDRed[i][j]
-            R = (R/cDMaxRed)*160.0
-            G = cDGreen[i][j]
-            G = (G/cDMaxGreen)*85.0
-            B = cDBlue[i][j]
-            B = (B/cDMaxBlue)*100.0
-            new_value = (int(R), int(G), int(B))
-            dwt_img.putpixel((i+width, j+height), new_value)
+    # #cH reconstruction
+    # for i in range(width):
+    #     for j in range(height):
+    #         R = cHRed[i][j]
+    #         R = (R/cHMaxRed)*160.0
+    #         G = cHGreen[i][j]
+    #         G = (G/cHMaxGreen)*85.0
+    #         B = cHBlue[i][j]
+    #         B = (B/cHMaxBlue)*100.0
+    #         new_value = (int(R), int(G), int(B))
+    #         dwt_img.putpixel((i+width, j), new_value)
+    # #cV reconstruction
+    # for i in range(width):
+    #     for j in range(height):
+    #         R = cVRed[i][j]
+    #         R = (R/cVMaxRed)*160.0
+    #         G = cVGreen[i][j]
+    #         G = (G/cVMaxGreen)*85.0
+    #         B = cVBlue[i][j]
+    #         B = (B/cVMaxBlue)*100.0
+    #         new_value = (int(R), int(G), int(B))
+    #         dwt_img.putpixel((i, j+height), new_value)
+    # #cD reconstruction
+    # for i in range(width):
+    #     for j in range(height):
+    #         R = cDRed[i][j]
+    #         R = (R/cDMaxRed)*160.0
+    #         G = cDGreen[i][j]
+    #         G = (G/cDMaxGreen)*85.0
+    #         B = cDBlue[i][j]
+    #         B = (B/cDMaxBlue)*100.0
+    #         new_value = (int(R), int(G), int(B))
+    #         dwt_img.putpixel((i+width, j+height), new_value)
 
 
     return dwt_img
