@@ -12,11 +12,11 @@ from image import show_output
 
 
 def running(file, file_comp, file_ext):
-    img = util.load_img(file)
-    coef = comp.extract_rgb_coeff(img)
-    image = comp.img_from_dwt_coeff(coef)
+    img = util.load_img(file)                       # Loads the image selected
+    coef = comp.extract_rgb_coeff(img)              # Extracts the RBG Coefficients from the image 
+    image = comp.img_from_dwt_coeff(coef)           # Forms the new image using the dwt coeeficients
     comp_file = "compress"+file_ext
-    image.save(comp_file)
+    image.save(comp_file)                           # Saves the image
     enhancer = ImageEnhance.Brightness(image)
     image = enhancer.enhance(2)
     # enhancer = ImageEnhance.Color(image)
@@ -28,26 +28,29 @@ def running(file, file_comp, file_ext):
     im_resized = im.resize(size, Image.
                            ANTIALIAS)
     im_resized.save(file_comp)
-    #print(str(os.path.getsize(file))+" " + str(os.path.getsize(file_comp)))
+    
     os.remove(comp_file)
     os.remove(file_enh)
     return os.path.getsize(file)/os.path.getsize(file_comp)
 
 
-def get_image_dimensions(imagefile):
+def get_image_dimensions(imagefile):             # Function to get the dimensions of the image
     with Image.open(imagefile) as img:
         width, height = img.size
-    return int(width), int(height)
+    return int(width), int(height)              # returns the width and height of the image in terms of pixels
 
 
 def create_folder():
-    path = "Compressed_Images"
+    path = "Compressed_Images"                  # Creates the folder and in order to save the image in this folder
     os.rmdir(path)
     os.mkdir(path)
 
 
-def run():
-    root = tk.Tk()
+def run():  
+    '''
+    Main Function to run the compression
+    '''
+    root = tk.Tk()                          # Window for choosing the images
     file = tf.askopenfilenames(parent=root, title="Choose", filetypes=(
         ("jpeg files", "*.jpg"), ("png files", "*.png")))
     files = list(file)
