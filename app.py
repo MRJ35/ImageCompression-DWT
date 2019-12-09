@@ -17,6 +17,10 @@ def running(file, file_comp, file_ext):
     image = comp.img_from_dwt_coeff(coef)           # Forms the new image using the dwt coeeficients
     comp_file = "compress"+file_ext
     image.save(comp_file)                           # Saves the image
+
+    '''
+    Below lines of the code are to resize and enhance the images
+    '''
     enhancer = ImageEnhance.Brightness(image)
     image = enhancer.enhance(2)
     # enhancer = ImageEnhance.Color(image)
@@ -52,7 +56,7 @@ def run():
     '''
     root = tk.Tk()                          # Window for choosing the images
     file = tf.askopenfilenames(parent=root, title="Choose", filetypes=(
-        ("jpeg files", "*.jpg"), ("png files", "*.png")))
+        ("jpeg files", "*.jpg"), ("png files", "*.png")))               # Select two type of iamges : jpg and png
     files = list(file)
     # create_folder()
     ans = 0
@@ -65,11 +69,15 @@ def run():
             if x[j] == '/':
                 ind = j
         ext = str(file[i][len(x)-4:len(x)])
-        file2 = "Compressed_Images/"+file[i][ind+1:len(x)-4]+"_compressed"+ext
-        ans1 = running(file[i], file2, ext)
+        file2 = "Compressed_Images/"+file[i][ind+1:len(x)-4]+"_compressed"+ext    # create the path inorder to save the  compressed image in the created folder
+        ans1 = running(file[i], file2, ext)                                       # The function to compress the image which returns the compression ratio
         show_output(file2,file[i])
+
+        '''
+        Finds the maximum compression and minimum compression ratio when multiple images are selected
+        '''
         mini = min(mini, ans1)
-        maxi = max(maxi, ans1)
+        maxi = max(maxi, ans1)                                                        
         ans += ans1
     print("\nCompression Ratio : %.2f" % (ans/len(file)))
     print("\nMax : "+str(maxi) + "\nMin : " + str(mini))
