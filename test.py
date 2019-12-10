@@ -1,41 +1,29 @@
-# import pyglet
+from itertools import permutations 
 
-# animation = pyglet.image.load_animation('gg.gif')
-# animSprite = pyglet.sprite.Sprite(animation)
+def bin_xor(s1,s2):
+        x1 = []
+        y1 = []
+        p1 = permutations(s1) 
+        for perm in list(p1): 
+                x1.append(''.join(perm)) 
+        p2 = permutations(s2)
+        for perm in list(p2): 
+                y1.append(''.join(perm)) 
+        f = []
+        #print(x1,y1)
+        for i in range(len(x1)):
+                num1 = int(x1[i],2)
+                for j in range(len(y1)):
+                        num2 = int(y1[j],2)
+                        f.append(num1^num2)
 
-# w = animSprite.width
-# h = animSprite.height
-
-# window = pyglet.window.Window(width=w, height=h)
-# # r, g, b, alpha = 0.5, 0.5, 0.8, 0.5
-# # pyglet.gl.glClearColor(r, g, b, alpha)
-
-
-# @window.event
-# def on_draw():
-#     window.clear()
-#     animSprite.draw()
-
-
-# pyglet.app.run()
-
-from tkinter import *
-import time
-import os
-root = Tk()
-
-frames = [PhotoImage(file='gg.gif',
-                     format='gif -index %i' % (i)) for i in range(100)]
+        f = set(f)
+        return len(f)
 
 
-def update(ind):
-    frame = frames[ind]
-    ind += 1
-    label.configure(image=frame)
-    root.after(10, update, ind)
-
-
-label = Label(root)
-label.pack()
-root.after(0, update, 0)
-root.mainloop()
+t = int(input())
+for _ in range(t):
+        x = int(input())
+        s1 = input()
+        s2 = input()
+        print(bin_xor(s1,s2))
