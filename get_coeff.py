@@ -57,8 +57,7 @@ def img_from_dwt_coeff(coeff_dwt):
     cc = numpy.array((coeffs_r, coeffs_g, coeffs_b))
 
     (width, height) = (len(coeffs_r[0]), len(coeffs_r[0][0]))
-    # print("width : ", width, " height : ", height)
-    # print("test : ", numpy.ndim(cc), " tt : ", len(coeffs_r[0][0]))
+
     cARed = numpy.array(coeffs_r[0])
     cHRed = numpy.array(coeffs_r[1][0])
     cVRed = numpy.array(coeffs_r[1][1])
@@ -110,7 +109,3 @@ def img_from_dwt_coeff(coeff_dwt):
             dwt_img.putpixel((i, j), new_value)
    
     return dwt_img
-
-
-def quantization(mat):
-    pass
