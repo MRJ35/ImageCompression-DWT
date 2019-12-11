@@ -54,8 +54,8 @@ def run():
     '''
     Main Function to run the compression
     '''
-    root = tk.Tk()                          # Window for choosing the images
-    file = tf.askopenfilenames(parent=root, title="Choose", filetypes=(
+    tk.Tk().withdraw()                          # Window for choosing the images
+    file = tf.askopenfilenames(title="Choose Images", filetypes=(
         ("jpeg files", "*.jpg"), ("png files", "*.png")))               # Select two type of iamges : jpg and png
     files = list(file)
     # create_folder()
@@ -81,7 +81,6 @@ def run():
     
     print("\nCompression Ratio : %.2f" % (ans/len(file)))
     print("\nMax : "+str(maxi) + "\nMin : " + str(mini))
-    root.destroy()
     go(files)
 
 
