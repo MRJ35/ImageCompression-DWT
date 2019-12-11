@@ -23,8 +23,7 @@ def running(file, file_comp, file_ext):
     '''
     enhancer = ImageEnhance.Brightness(image)
     image = enhancer.enhance(2)
-    # enhancer = ImageEnhance.Color(image)
-    # image = enhancer.enhance(1.1)
+   
     file_enh = "enhanced"+file_ext
     image.save(file_enh)
     im = Image.open(file_enh)
