@@ -8,8 +8,7 @@ import tkinter as tk
 import tkinter.filedialog as tf
 from resizeimage import resizeimage
 import math
-from image import show_output
-from test import run as go
+from output import run as go
 
 
 def running(file, file_comp, file_ext):

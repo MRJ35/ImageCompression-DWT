@@ -19,22 +19,22 @@ def rightClick(event,x):
 def run(fileList):
     root = Tk()
     root.title("Image Compression")
-    root.geometry('472x200')
+    root.geometry('1070x400')
     root.configure(background='#3ed8ea')
-    root.resizable(False,False)
+    root.resizable(True,False)
     vspace(0,root)
     #compressed_file_name =  "Compressed_Images/"+name[:len(name)-4]+"_compressed"+name[len(name)-4:]
-    image_name = Label(root,text="Image Name",borderwidth=2, relief="groove",bg = '#3ed8ea',fg='#1c1c6c')
+    image_name = Label(root,text="Image Name",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     image_name.grid(row=2,column = 0)
     vspace(3,root) 
     hspace(1,root)
-    oi = Label(root,text="Original Image Size",borderwidth=2, relief="groove",bg = '#3ed8ea',fg='#1c1c6c')
+    oi = Label(root,text="Original Image Size",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     oi.grid(row=2,column=2)
     hspace(3,root)
-    ci = Label(root,text="Compressed Image Size",borderwidth=2, relief="groove",bg = '#3ed8ea',fg='#1c1c6c')
+    ci = Label(root,text="Compressed Image Size",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     ci.grid(row=2,column=4)
     hspace(5,root)
-    cr = Label(root,text="Compression Ratio",borderwidth=2, relief="groove",bg = '#3ed8ea',fg='#1c1c6c')
+    cr = Label(root,text="Compression Ratio",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     cr.grid(row=2,column=6)
 
     rows = 4
@@ -51,15 +51,15 @@ def extract_ratio(str1,str2):
     return "%.2f"%(s1/s2)
     
 def create_table(root,name,file,file2,row):
-    image = Label(root,text=name,bg = '#3ed8ea',fg='#1c1c6c')
+    image = Label(root,text=name,bg = '#3ed8ea',fg='#1c1c6c',font='Verdana 12')
     image.grid(row=row,column = 0)
-    image1 = Label(root,text = meta_data(file),bg = '#3ed8ea',fg='#1c1c6c')
+    image1 = Label(root,text = meta_data(file),bg = '#3ed8ea',fg='#1c1c6c',font='Verdana 12')
     image1.grid(row=row,column = 2)
     image1.bind("<Button-1>",lambda event:rightClick(event,file))
-    image1 = Label(root,text = meta_data(file2),bg = '#3ed8ea',fg='#1c1c6c')
+    image1 = Label(root,text = meta_data(file2),bg = '#3ed8ea',fg='#1c1c6c',font='Verdana 12')
     image1.grid(row=row,column = 4)
     image1.bind("<Button-1>",lambda event:rightClick(event,file2))
-    image1 = Label(root,text = extract_ratio(meta_data(file),meta_data(file2)),bg = '#3ed8ea',fg='#1c1c6c')
+    image1 = Label(root,text = extract_ratio(meta_data(file),meta_data(file2)),bg = '#3ed8ea',fg='#1c1c6c',font='Verdana 12')
     image1.grid(row=row,column = 6)
 
 def meta_data(filen):
