@@ -22,7 +22,7 @@ def run(fileList):
     root.configure(background='black')
     root.resizable(False,False)
     vspace(0,root)
-    compressed_file_name =  "Compressed_Images/"+name[:len(name)-4]+"_compressed"+name[len(name)-4:]
+    #compressed_file_name =  "Compressed_Images/"+name[:len(name)-4]+"_compressed"+name[len(name)-4:]
     image_name = Label(root,text="Image Name",borderwidth=2, relief="groove",bg = 'black',fg='white')
     image_name.grid(row=2,column = 0)
     vspace(3,root) 
@@ -39,7 +39,11 @@ def run(fileList):
     rows = 4
     for i in range(len(fileList)):
         name = ntpath.basename(fileList[i])
-        
+        compressed_file_name =  "Compressed_Images/"+name[:len(name)-4]+"_compressed"+name[len(name)-4:]
+        create_table(root,name,fileList[i],compressed_file_name,rows)
+        rows = rows+1
+
+
     mainloop()
 
 def extract_ratio(str1,str2):
@@ -47,8 +51,8 @@ def extract_ratio(str1,str2):
     s2 = int(str2[:len(str2)-3])
     return str(s1/s2) + " %"
     
-def create_table(root,file,file2,row):
-    image = Label(root,text=file,bg = 'black',fg='white')
+def create_table(root,name,file,file2,row):
+    image = Label(root,text=name,bg = 'black',fg='white')
     image.grid(row=row,column = 0)
     image1 = Label(root,text = im.meta_data(file),bg = 'black',fg='white')
     image1.grid(row=row,column = 2)

@@ -80,9 +80,11 @@ def run():
         mini = min(mini, ans1)
         maxi = max(maxi, ans1)                                                        
         ans += ans1
-        go(file[i])
+    
     print("\nCompression Ratio : %.2f" % (ans/len(file)))
     print("\nMax : "+str(maxi) + "\nMin : " + str(mini))
+    root.destroy()
+    go(files)
 
 
 if __name__ == "__main__":
