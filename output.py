@@ -5,10 +5,16 @@ import os
 import math
 
 def hspace(col,root):
+    '''
+    Adding horizontal space
+    '''
     space = Label(root,text = "    ",bg = '#3ed8ea')
     space.grid(row=2,column=col)
 
 def vspace(row,root):
+    '''
+    Adding Vertical Space
+    '''
     space = Label(root,text = "  ",bg = '#3ed8ea')
     space.grid(row=row)
 
@@ -29,7 +35,7 @@ def run(fileList):
     root.configure(background='#3ed8ea')
     root.resizable(True,False)
     vspace(0,root)
-    #compressed_file_name =  "Compressed_Images/"+name[:len(name)-4]+"_compressed"+name[len(name)-4:]
+    
     image_name = Label(root,text="Image Name",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     image_name.grid(row=2,column = 0)
     vspace(3,root) 
