@@ -72,8 +72,7 @@ def run():
         ext = str(file[i][len(x)-4:len(x)])
         file2 = "Compressed_Images/"+file[i][ind+1:len(x)-4]+"_compressed"+ext    # create the path inorder to save the  compressed image in the created folder
         ans1 = running(file[i], file2, ext)                                       # The function to compress the image which returns the compression ratio
-        #show_output(file2,file[i])
-
+    
         '''
         Finds the maximum compression and minimum compression ratio when multiple images are selected
         '''
