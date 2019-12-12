@@ -34,6 +34,7 @@ def run(fileList):
     root.geometry('1070x400')
     root.configure(background='#3ed8ea')
     root.resizable(True,False)
+    center(root)
     vspace(0,root)
     
     image_name = Label(root,text="Image Name",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
@@ -90,3 +91,20 @@ def meta_data(filen):
     Gives the file size of the selected file in Kb
     '''
     return str(math.ceil(int(os.path.getsize(filen))/1024)) + " Kb"
+
+def center(win):
+    """
+    centers a tkinter window
+    :param win: the root or Toplevel window to center
+    """
+    win.update_idletasks()
+    width = win.winfo_width()
+    frm_width = win.winfo_rootx() - win.winfo_x()
+    win_width = width + 2 * frm_width
+    height = win.winfo_height()
+    titlebar_height = win.winfo_rooty() - win.winfo_y()
+    win_height = height + titlebar_height + frm_width
+    x = win.winfo_screenwidth() // 2 - win_width // 2
+    y = win.winfo_screenheight() // 2 - win_height // 2
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    win.deiconify()

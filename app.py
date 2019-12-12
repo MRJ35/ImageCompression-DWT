@@ -2,13 +2,13 @@ import os
 import get_coeff as comp
 import utils as util
 import numpy as np
-from PIL import Image, ImageEnhance
+from PIL import Image, ImageEnhance,ImageTk
 import pywt
 import tkinter as tk
 import tkinter.filedialog as tf
 from resizeimage import resizeimage
 import math
-from output import run as go
+import output as getit
 
 
 def running(file, file_comp, file_ext):
@@ -53,7 +53,15 @@ def run():
     '''
     Main Function to run the compression
     '''
-    tk.Tk().withdraw()                          # Window for choosing the images
+    root = tk.Tk()                          # Window for choosing the images
+    load = Image.open("startscreen.png")
+    render = ImageTk.PhotoImage(load)
+
+    img = tk.Label(image=render)
+    img.pack(side = "bottom", fill = "both", expand = "yes")
+    root.geometry("700x700")
+    center(root)
+   
     file = tf.askopenfilenames(title="Choose Images", filetypes=(
         ("jpeg files", "*.jpg"), ("png files", "*.png")))               # Select two type of iamges : jpg and png
     files = list(file)
@@ -80,7 +88,25 @@ def run():
     
     print("\nCompression Ratio : %.2f" % (ans/len(file)))
     print("\nMax : "+str(maxi) + "\nMin : " + str(mini))
-    go(files)
+    root.destroy()
+    getit.run(files)
+
+def center(win):
+    """
+    centers a tkinter window
+    :param win: the root or Toplevel window to center
+    """
+    win.update_idletasks()
+    width = win.winfo_width()
+    frm_width = win.winfo_rootx() - win.winfo_x()
+    win_width = width + 2 * frm_width
+    height = win.winfo_height()
+    titlebar_height = win.winfo_rooty() - win.winfo_y()
+    win_height = height + titlebar_height + frm_width
+    x = win.winfo_screenwidth() // 2 - win_width // 2
+    y = win.winfo_screenheight() // 2 - win_height // 2
+    win.geometry('{}x{}+{}+{}'.format(width, height, x, y))
+    win.deiconify()
 
 
 if __name__ == "__main__":
