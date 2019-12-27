@@ -2,11 +2,13 @@ import os
 import get_coeff as comp
 import utils as util
 import numpy as np
+import PIL
 from PIL import Image, ImageEnhance,ImageTk
+
 import pywt
 import tkinter as tk
 import tkinter.filedialog as tf
-from resizeimage import resizeimage
+#from resizeimage import resizeimage
 import math
 import output as getit
 
