@@ -106,6 +106,6 @@ def img_from_dwt_coeff(coeff_dwt):
             B = cABlue[i][j]
             B = (B/cAMaxBlue)*100.0
             new_value = (int(R), int(G), int(B))
-            dwt_img.putpixel((i, j), new_value)
+            dwt_img.putpixel((i, j), new_value) # creating image back from the obtained color values 
    
     return dwt_img
