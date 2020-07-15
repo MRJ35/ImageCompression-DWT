@@ -17,4 +17,4 @@ PyWavelet   : pip3 install PyWavelets
 * [**Namit Shah**](https://github.com/NamitS27)
 * [**Martand Javia**](https://github.com/MRJ35)
 * [**Harvish Jariwala**](https://github.com/harvishj)
-
+* [**Devam Shah**](https://github.com/Devam911)
