@@ -28,7 +28,7 @@ def leftClick(event,x):
 
 def run(fileList):
     '''
-    Creates the window 
+    Creates the window
     '''
     root = Tk()
     root.title("Image Compression")
@@ -37,10 +37,10 @@ def run(fileList):
     root.resizable(True,False)
     appy.center(root)
     vspace(0,root)
-    
+
     image_name = Label(root,text="Image Name",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     image_name.grid(row=2,column = 0)
-    vspace(3,root) 
+    vspace(3,root)
     hspace(1,root)
     oi = Label(root,text="Original Image Size",borderwidth=2, relief="solid",bg = '#3ed8ea',fg='#1c1c6c',height=2,width=25,font='Verdana 12')
     oi.grid(row=2,column=2)
@@ -69,10 +69,10 @@ def extract_ratio(str1,str2):
     s1 = int(str1[:len(str1)-3])
     s2 = int(str2[:len(str2)-3])
     return "%.2f"%(s1/s2)
-    
+
 def create_table(root,name,file,file2,row):
     '''
-    This is used for adding multiple images in the list. 
+    This is used for adding multiple images in the list.
     On clicking the original image, it opens the original image
     On clicking the compressed image, it opens the compressed image
     '''

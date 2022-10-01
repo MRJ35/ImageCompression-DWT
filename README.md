@@ -2,6 +2,12 @@
 
 With the advent of powerful image sensors that provide very high-quality images, image  compression has become a necessity. Images have to be transferred over large distances  viz space telescopes, rendered on mobile phones having weaker internet connection and  be used in various other applications. Our project aims to address some of these issues  by using Discrete Wavelet Transform based image compression in python.
 
+
+## Usage
+* Clone the repository
+* Install the requirements
+* Run the `app.py` file
+
 ### Prerequisites
 
 What things you need to install the software and how to install them

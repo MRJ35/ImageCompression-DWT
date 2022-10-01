@@ -32,11 +32,11 @@ def extract_rgb_coeff(img):
             mat_b[i, j] = b
 
     coeffs_r = pywt.dwt2(mat_r, 'haar')
-   
+
     coeffs_g = pywt.dwt2(mat_g, 'haar')
-    
+
     coeffs_b = pywt.dwt2(mat_b, 'haar')
-    
+
     return (coeffs_r, coeffs_g, coeffs_b)
 
 
@@ -78,18 +78,6 @@ def img_from_dwt_coeff(coeff_dwt):
     cAMaxGreen = util.max_ndarray(cAGreen)
     cAMaxBlue = util.max_ndarray(cABlue)
 
-    cHMaxRed = util.max_ndarray(cHRed)
-    cHMaxGreen = util.max_ndarray(cHGreen)
-    cHMaxBlue = util.max_ndarray(cHBlue)
-
-    cVMaxRed = util.max_ndarray(cVRed)
-    cVMaxGreen = util.max_ndarray(cVGreen)
-    cVMaxBlue = util.max_ndarray(cVBlue)
-
-    cDMaxRed = util.max_ndarray(cDRed)
-    cDMaxGreen = util.max_ndarray(cDGreen)
-    cDMaxBlue = util.max_ndarray(cDBlue)
-
     # Image object init
     dwt_img = Image.new('RGB', (width, height), (0, 0, 20))
     # cA reconstruction
@@ -106,6 +94,6 @@ def img_from_dwt_coeff(coeff_dwt):
             B = cABlue[i][j]
             B = (B/cAMaxBlue)*100.0
             new_value = (int(R), int(G), int(B))
-            dwt_img.putpixel((i, j), new_value) # creating image back from the obtained color values 
-   
+            dwt_img.putpixel((i, j), new_value)
+
     return dwt_img

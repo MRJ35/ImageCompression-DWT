@@ -20,6 +20,7 @@ def load_img(path):
     except IOError:
         return None
 
+
 def max_ndarray(mat):
     """
     Returns maximum value within a given 2D Matrix, otherwise 0
